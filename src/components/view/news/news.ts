@@ -1,11 +1,12 @@
+import { Source } from '../appView';
 import './news.css';
 
 class News {
-    draw(data) {
+    draw(data:Source[]) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
-        const newsItemTemp = document.querySelector('#newsItemTemp');
+        const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLElement;
 
         news.forEach((item, idx) => {
             const newsClone = newsItemTemp.content.cloneNode(true);
